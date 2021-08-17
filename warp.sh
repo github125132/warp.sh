@@ -142,7 +142,7 @@ Instal_WARP_Client_Debian() {
     elif [[ ${ID_LIKE} = *debian* ]]; then
         OS_CodeName='buster'
     else
-        OS_CodeName="${VERSION_CODENAME}"
+        OS_CodeName="$(lsb_release -c --short)"
     fi
     echo "deb http://pkg.cloudflareclient.com/ ${OS_CodeName} main" | tee /etc/apt/sources.list.d/cloudflare-client.list
     apt update
